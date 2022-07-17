@@ -54,7 +54,7 @@ ROOT_URLCONF = 'Entregable.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["D:/Coderhouse/Python/18. Django - Porfolio (parte 2)/Entregable6/Entregable/Entregable/Plantillas/"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

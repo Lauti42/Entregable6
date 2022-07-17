@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from Entregable.view import VistaFamiliares
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('familia/', VistaFamiliares),
 ]
