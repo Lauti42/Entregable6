@@ -2,13 +2,12 @@ from django.db import models
 
 # Create your models here.
 
-class Familiar():
+class Familiar(models.Model):
 
-    
-    def __init__(self, nombre, edad, parentezco):
-        self.nombre = nombre
-        self.edad = edad
-        self.parentezco = parentezco
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
+    edad = models.IntegerField()
+    parentesco = models.CharField(max_length=50)
         
 
     
