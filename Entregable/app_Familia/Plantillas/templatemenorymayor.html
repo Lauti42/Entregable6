@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Familia - Menores y Mayores</title>
+
+    <ul>
+        <li>
+            <a href="/familia">Inicio</a>
+        </li>
+    
+        <li>
+            <a href="/familia/parentesco">Parentesco</a>
+        </li>
+    </ul>
+</head>
+<body>
+    <h2>Familiares mayores de edad</h2>
+    <ul>
+        
+        {% for familiar in familia %}
+            
+            {% if familiar.edad >= 18 %}
+                <li>{{familiar.nombre}} {{familiar.apellido}} de {{familiar.edad}} años.</li>
+            {% endif %}
+                
+        {% endfor %}
+    </ul>
+    
+    <h2>Familiares Menores de edad</h2>
+    
+    <ul>
+        
+        {% for familiar in familia %}
+            
+            {% if familiar.edad < 18 %}
+                <li>{{familiar.nombre}} {{familiar.apellido}} de {{familiar.edad}} años.</li>
+            {% endif %}
+
+        {% endfor %}
+    </ul>
+
+
+</body>
+</html>

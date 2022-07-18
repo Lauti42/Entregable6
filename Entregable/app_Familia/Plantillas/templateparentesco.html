@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Familia - Parentescos</title>
+    <ul>
+        <li>
+            <a href="/familia">Inicio</a>
+        </li>
+
+        <li>
+            <a href="/familia/menores-y-mayores">Menores y Mayores</a>
+        </li>
+    </ul>
+</head>
+<body>
+    <h1>Parentesco</h1>
+
+    <h3>Padres</h3>
+    <ul>
+        
+        {% for familiar in familia %}
+            
+            {% if familiar.parentesco == "Padre" or familiar.parentesco == "Madre" %}
+             <li>{{familiar.nombre}} {{familiar.apellido}} de {{familiar.edad}} años.</li>
+            {% endif %}
+                
+            
+        {% endfor %}
+            
+    </ul>
+
+    <h3>Hemanos</h3>
+    <ul>
+        
+        {% for familiar in familia %}
+            
+            {% if familiar.parentesco == "Hermano" or familiar.parentesco == "Hermana" %}
+             <li>{{familiar.nombre}} {{familiar.apellido}} de {{familiar.edad}} años.</li>
+            {% endif %}
+                
+            
+        {% endfor %}
+            
+    </ul>
+
+    <h3>Primos</h3>
+    <ul>
+        
+        {% for familiar in familia %}
+            
+            {% if familiar.parentesco == "Primo" or familiar.parentesco == "Prima" %}
+             <li>{{familiar.nombre}} {{familiar.apellido}} de {{familiar.edad}} años.</li>
+            {% endif %}
+                
+            
+        {% endfor %}
+            
+    </ul>
+</body>
+</html>
