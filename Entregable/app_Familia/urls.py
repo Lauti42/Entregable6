@@ -7,10 +7,10 @@ urlpatterns = [
     path('familia/parentesco/', VistaParentesco),
     path('familia/menores-y-mayores/', VistaMenoresymayores),
     path('agregar-familiar/<nombre>/<apellido>/<edad>/<parentesco>', familiar),
-    path('', inicio),
-    path('familiares/', familia),
-    path('amigos/', amigos),
-    path('estudios/',estudios),
-    path('trabajos/', trabajos),
+    path('', inicio, name="Inicio"),
+    path('familiares/', familia, name="Familia"),
+    path('amigos/', amigos, name="Amigos"),
+    path('estudios/',estudios, name="Estudios"),
+    path('trabajos/', trabajos, name="Trabajos"),
 
 ]
