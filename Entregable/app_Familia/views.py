@@ -17,7 +17,7 @@ def familiar(self, nombre, apellido, edad, parentesco):
 
 def VistaFamiliares(self):
 
-    plantilla = loader.get_template("templatefamilia.html")
+    plantilla = loader.get_template("familia.html")
 
     documento = plantilla.render({"familia": Familiar.objects.all()})
 
@@ -25,7 +25,7 @@ def VistaFamiliares(self):
 
 def VistaParentesco(self):
 
-    plantilla = loader.get_template("templateparentesco.html")
+    plantilla = loader.get_template("parentesco.html")
 
     documento = plantilla.render({"familia": Familiar.objects.all()})
 
@@ -33,8 +33,29 @@ def VistaParentesco(self):
 
 def VistaMenoresymayores(self):
 
-    plantilla = loader.get_template("templatemenorymayor.html")
+    plantilla = loader.get_template("menor-y-mayor.html")
 
     documento = plantilla.render({"familia": Familiar.objects.all()})
 
     return HttpResponse(documento)
+
+def inicio(self):
+
+    return render(self, "inicio.html")
+
+def familia(self):
+
+    return render(self, "familiares.html")
+
+def amigos(self):
+
+    return render(self, "amigos.html")
+
+def estudios(self):
+
+    return render(self, "estudios.html")
+
+def trabajos(self):
+
+    return render(self, "trabajos.html")
+
