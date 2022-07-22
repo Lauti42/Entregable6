@@ -7,6 +7,26 @@
 
     <p>Bienvenidos a la seccion de Familiares</p>
     <p>Acá habrá información sobre los familiares en cuestión</p>
+
+    <h1>Hola, esta es mi familia</h1>
+
+    <ul>
+        
+        {% for familiar in familia %}
+            <li>{{familiar.nombre}} {{familiar.apellido}} de {{familiar.edad}} años.</li>
+        {% endfor %}
+            
+    </ul>
+    <br>
     
+    <ul>
+        <li>
+            <a href="{% url 'Parentesco' %}">Parentesco</a>
+        </li>
+
+        <li>
+            <a href="{% url 'Menor-y-mayor' %}">Menores y Mayores</a>
+        </li>
+    </ul>
 {% endblock bloqueQueCambia %}
     

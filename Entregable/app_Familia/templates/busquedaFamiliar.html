@@ -1,0 +1,16 @@
+{% extends 'padre.html' %}
+
+
+{% block bloqueQueCambia %}
+
+    <h1>Seccion de formulario para añadir nuevo familiar</h1>
+
+    <form action="{% url 'Buscar' %}" method="GET"> {% csrf_token %}
+
+        <p>Apellido de familiar: <input type="text" name="apellido" id="apellido"></p>
+
+        <input type="submit" value="Buscar">
+    </form> 
+
+{% endblock bloqueQueCambia %}
+    
