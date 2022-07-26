@@ -6,8 +6,31 @@
     <h1>Seccion de formulario para añadir nuevo familiar</h1>
 
     <form action="{% url 'Formulario' %}" method="POST"> {% csrf_token %}
+        
 
-        {{miformulario.as_p}}
+        <table>
+            <!-- {{miformulario.as_table}} -->
+            <p>Universidad: <input type="text" name="universidad"> </p>
+
+            <p>Titulo: <input type="text" name="titulo"> </p>
+
+            <p>Duración: <input type="number" name="duracion"> </p>
+
+            <!-- <p>Familiar: <input type="text" name="familiar"> </p> -->
+
+            <label>Familiar</label>
+            
+            <select name="familiar"> 
+                {% for familiar in familia %}
+                    <option>
+                        {{familiar}}
+                    </option>
+                {% endfor %}
+            
+            </select>
+        </table>
+        <br>
+        <br>
 
         <input type="submit" value="Enviar">
     </form>

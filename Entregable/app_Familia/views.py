@@ -1,9 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import Template, Context, loader
-from app_Familia.forms import FormularioFamilia
+# from app_Familia.forms import FormularioEstudio
 
-from app_Familia.models import Familiar
+from app_Familia.models import Familiar, Estudios
 
 # Create your views here.
 
@@ -60,41 +60,47 @@ def trabajos(self):
 def formulariofamilia(request):
 
 
-    # print('method', request.method)
-    # print('post', request.POST)
-
-    # if request.method == 'POST':
-
-    #     familiar = Familiar( nombre=request.POST['nombre'], apellido=request.POST['apellido'], edad=request.POST['edad'], parentesco=request.POST['parentesco'])
-        
-    #     familiar.save()
-
-    #     return render(request, 'inicio.html')
-
-    # return render(request, 'formulario-familia.html')
-
     print('method', request.method)
     print('post', request.POST)
 
     if request.method == 'POST':
 
-        miformulario = FormularioFamilia(request.POST)
-
-        if miformulario.is_valid():
-
-            data = miformulario.cleaned_data
-
-            familiar = Familiar( nombre=data['nombre'], apellido=data['apellido'], edad=data['edad'], parentesco=data['parentesco'])
+        familiar = Estudios( universidad=request.POST['universidad'], titulo=request.POST['titulo'], duracion=request.POST['duracion'], familiar=request.POST['familiar'])
         
-            familiar.save()
+        familiar.save()
 
-            return render(request, 'inicio.html')
+        return render(request, 'inicio.html')
 
-    else:
+    plantilla = loader.get_template("formulario-familia.html")
+
+    documento = plantilla.render({"familia": Familiar.objects.all()})
+
+    return HttpResponse(documento)
+
+
+
+    # print('method', request.method)
+    # print('post', request.POST)
+
+    # if request.method == 'POST':
+
+    #     miformulario = FormularioEstudio(request.POST)
+
+    #     if miformulario.is_valid():
+
+    #         data = miformulario.cleaned_data
+
+    #         estudio = Estudios( universidad=data['universidad'], titulo=data['titulo'], duracion=data['duracion'], familiar=data['familiar'])
         
-        miformulario = FormularioFamilia() 
+    #         estudio.save()
 
-    return render(request, 'formulario-familia.html', {'miformulario': miformulario})
+    #         return render(request, 'inicio.html')
+
+    # else:
+        
+    #     miformulario = FormularioEstudio() 
+
+    # return render(request, 'formulario-familia.html', {'miformulario': miformulario})
 
 def busquedaFamiliar(request):  
 

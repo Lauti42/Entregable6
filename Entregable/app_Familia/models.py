@@ -1,3 +1,4 @@
+
 from django.db import models
 
 # Create your models here.
@@ -30,7 +31,7 @@ class Estudios(models.Model):
     universidad = models.CharField(max_length=50)
     titulo = models.CharField(max_length=50)
     duracion = models.IntegerField()
-    familiar = models.ForeignKey(Familiar, on_delete=models.CASCADE, default=1)
+    familiar = models.ForeignKey(Familiar, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return f'{self.titulo} - {self.duracion} años.'

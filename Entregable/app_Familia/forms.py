@@ -1,9 +1,8 @@
 from django import forms
 
-class FormularioFamilia(forms.Form):
-
-
-    nombre = forms.CharField()
-    apellido = forms.CharField()
-    edad = forms.IntegerField()
-    parentesco = forms.CharField()    
+class FormularioEstudio(forms.ModelForm):
+    
+    universidad = forms.CharField()
+    titulo = forms.CharField()
+    duracion = forms.IntegerField()
+    familiar = forms.CharField()    
